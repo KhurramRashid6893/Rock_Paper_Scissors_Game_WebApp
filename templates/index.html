@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RPS Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Two-Player Rock Paper Scissors</h1>
+    <div class="container">
+        <div class="player">
+            <h2>Player 1</h2>
+            <video id="cam1" autoplay></video>
+            <button onclick="capture(1)">Capture</button>
+        </div>
+        <div class="player">
+            <h2>Player 2</h2>
+            <video id="cam2" autoplay></video>
+            <button onclick="capture(2)">Capture</button>
+        </div>
+    </div>
+    <button onclick="submitImages()">Play!</button>
+    <div id="result"></div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
