@@ -27,4 +27,4 @@ def decode_base64(data):
     return cv2.imdecode(np_arr, cv2.IMREAD_COLOR)
 
 if __name__ == '__main__':
-    app.run(host = "0.0.0.0", port = 5000, debug = True))
+    app.run(host = "0.0.0.0", port = 5000, debug = True)
