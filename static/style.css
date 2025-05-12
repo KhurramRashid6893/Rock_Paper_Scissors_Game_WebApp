@@ -1,41 +1,121 @@
+/* General Reset */
 body {
-    font-family: Arial;
+    margin: 0;
+    padding: 0;
+    font-family: 'Rubik', sans-serif;
+    background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+    color: #333;
     text-align: center;
-    background: #f3f3f3;
+}
+
+header {
+    padding: 20px;
+    background: #5f72bd;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.subtitle {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    opacity: 0.9;
 }
 
 .container {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
+    flex-direction: column;
+    align-items: center;
 }
 
-.player {
-    border: 2px solid #444;
-    padding: 10px;
-    border-radius: 10px;
+.video-container {
     background: white;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 video {
-    width: 300px;
-    border-radius: 10px;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 12px;
 }
-button {
-    margin-top: 10px;
-    padding: 10px 20px;
+
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn {
+    padding: 12px 20px;
     font-size: 1rem;
+    border: none;
     border-radius: 8px;
     cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s, background 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
+
+.btn-player1 {
+    background-color: #ff9a9e;
+    color: #fff;
+}
+
+.btn-player2 {
+    background-color: #a1c4fd;
+    color: #fff;
+}
+
+.btn-play {
+    background-color: #fbc531;
+    color: #222;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+.result-box {
+    margin-top: 30px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+footer {
+    margin-top: 40px;
+    padding: 15px;
+    background: #5f72bd;
+    color: white;
+    font-size: 0.9rem;
+}
+
 @media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        align-items: center;
+    header h1 {
+        font-size: 2rem;
     }
-    video {
-        width: 90%;
+
+    .btn {
+        width: 80%;
+        font-size: 1.1rem;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 10px;
     }
 }
