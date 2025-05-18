@@ -4,14 +4,13 @@ import numpy as np
 import base64
 from rps_logic import RPSLogic
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 rps = RPSLogic()
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/predict', methods=['POST'])
 @app.route('/predict', methods=['POST'])
 def predict():
     data = request.get_json()
@@ -28,12 +27,12 @@ def predict():
         'winner': winner
     })
 
-
 def decode_base64(data):
     header, encoded = data.split(',', 1)
     img = base64.b64decode(encoded)
     np_arr = np.frombuffer(img, np.uint8)
     return cv2.imdecode(np_arr, cv2.IMREAD_COLOR)
 
+# Only for local dev — remove on Render
 if __name__ == '__main__':
-    app.run(host = "0.0.0.0", port = 5000, debug = True)
+    app.run(debug=True)
