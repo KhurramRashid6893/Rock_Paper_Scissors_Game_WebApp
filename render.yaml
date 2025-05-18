@@ -1,9 +1,11 @@
 services:
   - type: web
-    name: rps-game
+    name: rock-paper-scissors-game
     env: python
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "python app.py"
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
     envVars:
-      - key: FLASK_ENV
-        value: production
+      - key: PYTHON_VERSION
+        value: 3.10
+    autoDeploy: true
