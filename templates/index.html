@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,20 +16,39 @@
   </header>
 
   <main class="container">
+  <h2>🎯 Win 5 points to be the champion!</h2>
+
+  <div class="input-group">
+    <input type="text" id="playerName" placeholder="Enter your name">
+    <button onclick="startGame()" class="btn">Start Game</button>
+  </div>
+
+  <div id="gameArea" style="display:none;">
     <div class="video-container">
       <video id="cam" autoplay playsinline></video>
     </div>
 
     <div class="buttons">
-      <button onclick="capture(1)" class="btn btn-player1">🎮 Capture Player 1</button>
-      <button onclick="capture(2)" class="btn btn-player2">🎮 Capture Player 2</button>
-      <button onclick="submitImages()" id="play" class="btn btn-play" disabled>🏆 Play Round</button>
+      <button onclick="startCountdown()" class="btn btn-player1">🎮 Play Round</button>
+      <div id="countdown" class="countdown-display"></div>
     </div>
 
-    <div id="result" class="result-box">
-      <h2>Result will appear here!</h2>
-    </div>
-  </main>
+    <div class="scoreboard">
+  <p><strong><span id="nameLabel"></span></strong>: <span id="playerScore">0</span> | 🖥️ Computer: <span id="computerScore">0</span></p>
+</div>
+
+<div class="gesture-display">
+  <img id="playerGestureImg" src="" alt="Player Gesture">
+  <img id="computerGestureImg" src="" alt="Computer Gesture">
+</div>
+
+
+  
+
+    <div id="result" class="result-box"><h2>Result will appear here!</h2></div>
+  </div>
+</main>
+
 
   <footer>
     <p>© 2025 RPS Game by Khurram Rashid | Flask + OpenCV + JS</p>
@@ -37,3 +57,6 @@
   <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
+
+
+https://github.com/KhurramRashid6893/Rock_Paper_Scissors_Game_WebApp.git

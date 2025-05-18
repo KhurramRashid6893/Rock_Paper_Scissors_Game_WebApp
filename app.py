@@ -12,13 +12,22 @@ def index():
     return render_template('index.html')
 
 @app.route('/predict', methods=['POST'])
+@app.route('/predict', methods=['POST'])
 def predict():
     data = request.get_json()
-    image1 = decode_base64(data['player1'])
-    image2 = decode_base64(data['player2'])
+    image = decode_base64(data['player'])
+    
+    player_gesture = rps.recognizer.classify_image(image)
+    computer_gesture = rps.get_random_gesture()
+    
+    winner = rps.get_winner(player_gesture, computer_gesture)
 
-    result = rps.play_round(image1, image2)
-    return jsonify(result)
+    return jsonify({
+        'player': player_gesture,
+        'computer': computer_gesture,
+        'winner': winner
+    })
+
 
 def decode_base64(data):
     header, encoded = data.split(',', 1)
