@@ -2,7 +2,7 @@ from enum import Enum
 import math
 import cv2
 import mediapipe as mp
-
+ 
 class GestureRecogniser:
     def __init__(self):
         self.mp_hands = mp.solutions.hands
