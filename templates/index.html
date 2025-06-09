@@ -1,27 +1,60 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>RPS Game</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta charset="UTF-8">
+  <title>🎮 Rock Paper Scissors - Two Player Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Two-Player Rock Paper Scissors</h1>
-    <div class="container">
-        <div class="player">
-            <h2>Player 1</h2>
-            <video id="cam1" autoplay></video>
-            <button onclick="capture(1)">Capture</button>
-        </div>
-        <div class="player">
-            <h2>Player 2</h2>
-            <video id="cam2" autoplay></video>
-            <button onclick="capture(2)">Capture</button>
-        </div>
-    </div>
-    <button onclick="submitImages()">Play!</button>
-    <div id="result"></div>
 
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <header>
+    <h1>✊✋✌️ Rock Paper Scissors</h1>
+    <p class="subtitle">Take turns to play using one webcam!</p>
+  </header>
+
+  <main class="container">
+  <h2>🎯 Win 5 points to be the champion!</h2>
+
+  <div class="input-group">
+    <input type="text" id="playerName" placeholder="Enter your name">
+    <button onclick="startGame()" class="btn">Start Game</button>
+  </div>
+
+  <div id="gameArea" style="display:none;">
+    <div class="video-container">
+      <video id="cam" autoplay playsinline></video>
+    </div>
+
+    <div class="buttons">
+      <button onclick="startCountdown()" class="btn btn-player1">🎮 Play Round</button>
+      <div id="countdown" class="countdown-display"></div>
+    </div>
+
+    <div class="scoreboard">
+  <p><strong><span id="nameLabel"></span></strong>: <span id="playerScore">0</span> | 🖥️ Computer: <span id="computerScore">0</span></p>
+</div>
+
+<div class="gesture-display">
+  <img id="playerGestureImg" src="" alt="Player Gesture">
+  <img id="computerGestureImg" src="" alt="Computer Gesture">
+</div>
+
+
+  
+
+    <div id="result" class="result-box"><h2>Result will appear here!</h2></div>
+  </div>
+</main>
+
+
+  <footer>
+    <p>© 2025 RPS Game by Khurram Rashid | Flask + OpenCV + JS</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
+
